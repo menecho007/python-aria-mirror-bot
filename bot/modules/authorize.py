@@ -18,7 +18,7 @@ def authorize(update,context):
             chat_id = update.effective_chat.id
             if chat_id not in AUTHORIZED_CHATS:
                 file.write(f'{chat_id}\n')
-                AUTHORIZED_CHATS.add(chat_id)
+                AUTHORIZED_CHATS.append(chat_id)
                 msg = 'Chat authorized'
             else:
                 msg = 'Already authorized chat'
@@ -27,7 +27,7 @@ def authorize(update,context):
             user_id = reply_message.from_user.id
             if user_id not in AUTHORIZED_CHATS:
                 file.write(f'{user_id}\n')
-                AUTHORIZED_CHATS.add(user_id)
+                AUTHORIZED_CHATS.append(user_id)
                 msg = 'Person Authorized to use the bot!'
             else:
                 msg = 'Person already authorized'
